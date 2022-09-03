@@ -12,8 +12,8 @@ import pandas as pd
 from datetime import datetime
 from datetime import timedelta
 import time
-now = datetime.now()
-twodago = datetime.now() - timedelta(days=2)
+now = datetime.utcnow()
+twodago = datetime.utcnow() - timedelta(days=2)
 twodtimestr = datetime.isoformat(twodago).split('.')[0]
 twodtimestr = twodtimestr + 'Z'
 print(twodtimestr)
