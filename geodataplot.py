@@ -1,14 +1,12 @@
 print("Welcome!")
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-import numpy as np
 import json
 import requests
 import pandas as pd
 from datetime import datetime
 from datetime import timedelta
 import matplotlib.patches as mpatches
-from scipy.interpolate import interp1d
 now = datetime.utcnow()
 daydelta = int(input("How many days do you want to plot? (≤ 240) "))
 pasttime = datetime.utcnow() - timedelta(days=daydelta)
@@ -49,6 +47,7 @@ red_patch = mpatches.Patch(color='red', label='Rolling Average')
 black_patch = mpatches.Patch(color='black', label='Raw Data')
 plt.plot(fildattime, fildat, color='black', linewidth=1)
 plt.plot(fildattime, datrollav, color='red', linewidth=1)
+plt.ylim(20600,20800)
 plt.legend([black_patch, red_patch], ['Raw Data', 'Rolling Average'])
 plt.grid(linestyle=':')
 plt.title('Boulder Magnetometer - ' + str(daydelta) + ' Days')
